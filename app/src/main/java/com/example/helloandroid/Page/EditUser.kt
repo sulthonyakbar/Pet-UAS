@@ -1,7 +1,11 @@
 package com.example.helloandroid.Page
 
 import android.content.Context
+import android.content.SharedPreferences
+import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,13 +13,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
@@ -25,6 +30,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -42,15 +48,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.helloandroid.Greeting
+import com.example.helloandroid.Page.HomePage
+import com.example.helloandroid.Page.Register
 import com.example.helloandroid.PreferencesManager
-import com.example.helloandroid.R
-import com.example.helloandroid.data.RegisterData
+import com.example.helloandroid.data.LoginData
+import com.example.helloandroid.data.UpdateData
 import com.example.helloandroid.response.LoginRespon
-import com.example.helloandroid.service.RegisterService
+import com.example.helloandroid.service.LoginService
+import com.example.helloandroid.service.UserService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -59,18 +71,30 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Register(navController: NavController, context: Context = LocalContext.current){
+fun EditUser(navController: NavController,  userid : String?, usernameParameter: String?, emailParameter: String?, context: Context = LocalContext.current) {
+    val preferencesManager = remember { PreferencesManager(context = context) }
     val baseColor = Color(0xFF00676C)
-    val imageRegister = painterResource(id = R.drawable.register)
-    var username by remember { mutableStateOf(TextFieldValue("")) }
+    var username by remember { mutableStateOf(usernameParameter?: "") }
     var password by remember { mutableStateOf(TextFieldValue("")) }
-    var email by remember { mutableStateOf(TextFieldValue("")) }
-    val eyeOpen = painterResource(id = R.drawable.view)
-    val eyeClose = painterResource(id = R.drawable.hidden)
-    var passwordVisibility by remember { mutableStateOf(false) }
+    var email by remember { mutableStateOf(emailParameter?: "") }
+
     Scaffold (
         topBar = {
-            TopAppBar(title = { Text(text = "Sign In", fontWeight = FontWeight.Bold, fontSize = 28.sp)},
+            TopAppBar(
+                title = {
+                    Row (
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        IconButton(onClick = { navController.navigate("homepage") }) {
+                            Icon(
+                                Icons.Default.ArrowBack,
+                                contentDescription = null,
+                                tint = Color.Black
+                            )
+                        }
+                        Text(text = "Edit User Page", fontWeight = FontWeight.Bold, fontSize = 28.sp)
+                    }
+                },
                 colors = TopAppBarDefaults.smallTopAppBarColors(
                     containerColor = Color.White
                 ),
@@ -84,15 +108,6 @@ fun Register(navController: NavController, context: Context = LocalContext.curre
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Image(
-                painter = imageRegister,
-                contentDescription = null,
-                alignment = Alignment.Center,
-                modifier = Modifier
-                    .height(300.dp)
-                    .width(200.dp)
-            )
-
             OutlinedTextField(
                 value = username,
                 onValueChange = { newText ->
@@ -118,7 +133,7 @@ fun Register(navController: NavController, context: Context = LocalContext.curre
                 label = { Text(text = "Email") },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 6.dp),
+                    .padding(bottom = 38.dp),
                 leadingIcon = {
                     Icon(
                         Icons.Default.Email,
@@ -127,46 +142,15 @@ fun Register(navController: NavController, context: Context = LocalContext.curre
                 }
             )
 
-            OutlinedTextField(
-                value = password,
-                onValueChange = { newText ->
-                    password = newText
-                },
-                label = { Text(text = "Password") },
-                visualTransformation =
-                if (passwordVisibility) VisualTransformation.None
-                else PasswordVisualTransformation(),                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 38.dp),
-                leadingIcon = {
-                    Icon(
-                        Icons.Default.Lock,
-                        contentDescription = null,
-                    )
-                },
-                trailingIcon = {
-                    IconButton(onClick = { passwordVisibility = !passwordVisibility }) {
-                        val icon = if (passwordVisibility) eyeOpen else eyeClose
-                        Image(
-                            painter = icon,
-                            contentDescription = if (passwordVisibility) "Hide Password" else "Show Password",
-                            modifier = Modifier.size(24.dp),
-                        )
-                    }
-                }
-            )
-
             ElevatedButton(onClick = {
+                //navController.navigate("pagetwo")
                 var baseUrl = "http://10.0.2.2:1337/api/"
-                //var baseUrl = "http://10.217.17.11:1337/api/"
-
                 val retrofit = Retrofit.Builder()
                     .baseUrl(baseUrl)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
-                    .create(RegisterService::class.java)
-                val call = retrofit.saveData(RegisterData(email.text, username.text, password.text))
+                    .create(UserService::class.java)
+                val call = retrofit.save(userid, UpdateData(username, email))
                 call.enqueue(object : Callback<LoginRespon> {
                     override fun onResponse(
                         call: Call<LoginRespon>,
@@ -199,14 +183,10 @@ fun Register(navController: NavController, context: Context = LocalContext.curre
                     containerColor = baseColor,
                     contentColor = Color.White),
             ) {
-                Text(text = "Sign Up", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 16.sp )
-            }
-//            Text(text = jwt)
-
-            Row {
-                Text(text = "Already have an account ? ", color = Color.Gray)
-                ClickableText(text = AnnotatedString("Sign In"), onClick = {navController.navigate("greeting")})
+                Text(text = "Simpan", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 16.sp )
             }
         }
     }
+
 }
+

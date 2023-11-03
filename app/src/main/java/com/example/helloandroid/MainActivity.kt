@@ -13,16 +13,19 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -43,12 +46,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.helloandroid.Page.EditUser
 import com.example.helloandroid.Page.HomePage
 import com.example.helloandroid.Page.Register
 import com.example.helloandroid.data.LoginData
@@ -87,6 +92,11 @@ class MainActivity : ComponentActivity() {
                 composable(route = "register") {
                     Register(navController)
                 }
+                composable(
+                    route = "edituser/{userid}/{username}/{email}",
+                ) {backStackEntry ->
+                    EditUser(navController, backStackEntry.arguments?.getString("userid"), backStackEntry.arguments?.getString("username"), backStackEntry.arguments?.getString("email"))
+                }
             }
         }
     }
@@ -101,6 +111,9 @@ fun Greeting(navController: NavController, context: Context = LocalContext.curre
     val preferencesManager = remember { PreferencesManager(context = context) }
     var username by remember { mutableStateOf(TextFieldValue("")) }
     var password by remember { mutableStateOf(TextFieldValue("")) }
+    val eyeOpen = painterResource(id = R.drawable.view)
+    val eyeClose = painterResource(id = R.drawable.hidden)
+    var passwordVisibility by remember { mutableStateOf(false) }
     var baseUrl = "http://10.0.2.2:1337/api/"
     //var baseUrl = "http://10.217.17.11:1337/api/"
     var jwt by remember { mutableStateOf("") }
@@ -144,7 +157,6 @@ fun Greeting(navController: NavController, context: Context = LocalContext.curre
                     Icon(
                         Icons.Default.AccountCircle,
                         contentDescription = null,
-                        tint = Color.Gray
                     )
                 }
             )
@@ -155,7 +167,9 @@ fun Greeting(navController: NavController, context: Context = LocalContext.curre
                     password = newText
                 },
                 label = { Text(text = "Password") },
-                visualTransformation = PasswordVisualTransformation(),
+                visualTransformation =
+                if (passwordVisibility) VisualTransformation.None
+                else PasswordVisualTransformation(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -164,8 +178,17 @@ fun Greeting(navController: NavController, context: Context = LocalContext.curre
                     Icon(
                         Icons.Default.Lock,
                         contentDescription = null,
-                        tint = Color.Gray
                     )
+                },
+                trailingIcon = {
+                    IconButton(onClick = { passwordVisibility = !passwordVisibility }) {
+                        val icon = if (passwordVisibility) eyeOpen else eyeClose
+                        Image(
+                            painter = icon,
+                            contentDescription = if (passwordVisibility) "Hide Password" else "Show Password",
+                            modifier = Modifier.size(24.dp),
+                        )
+                    }
                 }
             )
 
@@ -194,7 +217,6 @@ fun Greeting(navController: NavController, context: Context = LocalContext.curre
                     override fun onFailure(call: Call<LoginRespon>, t: Throwable) {
                         print(t.message)
                     }
-
                 })
             },
                 modifier = Modifier

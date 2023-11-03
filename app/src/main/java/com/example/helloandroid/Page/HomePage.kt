@@ -11,11 +11,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -45,8 +47,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomePage(navController: NavController, context: Context = LocalContext.current){
-//var listUser: List<UserRespon> = remember
+fun HomePage(navController: NavController, context: Context = LocalContext.current) {
+    //var listUser: List<UserRespon> = remember
     val preferencesManager = remember { PreferencesManager(context = context) }
     val listUser = remember { mutableStateListOf<UserRespon>() }
     //var listUser: List<UserRespon> by remember { mutableStateOf(List<UserRespon>()) }
@@ -66,7 +68,7 @@ fun HomePage(navController: NavController, context: Context = LocalContext.curre
             if (response.code() == 200) {
                 //kosongkan list User terlebih dahulu
                 listUser.clear()
-                response.body()?.forEach{ userRespon ->
+                response.body()?.forEach { userRespon ->
                     listUser.add(userRespon)
                 }
             } else if (response.code() == 400) {
@@ -84,74 +86,108 @@ fun HomePage(navController: NavController, context: Context = LocalContext.curre
         }
 
     })
-    Scaffold (
+    Scaffold(
         topBar = {
-            TopAppBar(title = {
-                Text(text = "Home Page", fontWeight = FontWeight.Bold, fontSize = 28.sp)
-                ElevatedButton(modifier = Modifier.padding(start = 290.dp), onClick = {
-                    preferencesManager.saveData("jwt", "")
-                    navController.navigate("greeting")
-                }) {
-                    Icon(
-                        Icons.Default.ExitToApp,
-                        contentDescription = null,
-                        tint = Color.Gray
-                    )
-                }},
+            TopAppBar(
+                title = {
+                    Text(text = "Home Page", fontWeight = FontWeight.Bold, fontSize = 28.sp)
+                    IconButton(modifier = Modifier.padding(start = 320.dp), onClick = {
+                        preferencesManager.saveData("jwt", "")
+                        navController.navigate("greeting")
+                    }) {
+                        Icon(
+                            Icons.Default.ExitToApp,
+                            contentDescription = "Sign Out",
+                            tint = Color.Gray
+                        )
+                    }
+                },
                 colors = TopAppBarDefaults.smallTopAppBarColors(
                     containerColor = Color.White
                 ),
             )
         }
-    ){ innerPadding ->
-        Column (modifier = Modifier
-            .fillMaxSize()
-            .padding(innerPadding)
-            .padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally) {
-
-
-            LazyColumn{
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            LazyColumn {
                 listUser.forEach { user ->
                     item {
-                        Row (modifier = Modifier.padding(10.dp).fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                            Text(text = user.username)
-                            ElevatedButton(onClick = {
-                                val retrofit = Retrofit.Builder()
-                                    .baseUrl(baseUrl)
-                                    .addConverterFactory(GsonConverterFactory.create())
-                                    .build()
-                                    .create(UserService::class.java)
-                                val call = retrofit.delete(user.id)
-                                call.enqueue(object : Callback<UserRespon>{
-                                    override fun onResponse(call: Call<UserRespon>, response: Response<UserRespon>) {
-                                        print(response.code())
-                                        if(response.code() == 200){
-                                            listUser.remove(user)
-                                        }else if(response.code() == 400){
-                                            print("error login")
-                                            var toast = Toast.makeText(context, "Username atau password salah", Toast.LENGTH_SHORT).show()
+                        Row(
+                            modifier = Modifier
+                                .padding(10.dp)
+                                .fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
 
+                            Text(text = user.username, fontSize = 18.sp)
+
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                IconButton(onClick = {
+                                    navController.navigate("edituser/" + user.id + "/" + user.username + "/" + user.email)
+                                }) {
+                                    Icon(
+                                        Icons.Default.Edit,
+                                        contentDescription = "Edit",
+                                        tint = Color.Blue
+                                    )
+                                }
+
+                                IconButton(onClick = {
+                                    val retrofit = Retrofit.Builder()
+                                        .baseUrl(baseUrl)
+                                        .addConverterFactory(GsonConverterFactory.create())
+                                        .build()
+                                        .create(UserService::class.java)
+                                    val call = retrofit.delete(user.id)
+                                    call.enqueue(object : Callback<UserRespon> {
+                                        override fun onResponse(
+                                            call: Call<UserRespon>,
+                                            response: Response<UserRespon>
+                                        ) {
+                                            print(response.code())
+                                            if (response.code() == 200) {
+                                                listUser.remove(user)
+                                            } else if (response.code() == 400) {
+                                                print("error login")
+                                                var toast = Toast.makeText(
+                                                    context,
+                                                    "Username atau password salah",
+                                                    Toast.LENGTH_SHORT
+                                                ).show()
+
+                                            }
                                         }
-                                    }
 
-                                    override fun onFailure(call: Call<UserRespon>, t: Throwable) {
-                                        print(t.message)
-                                    }
+                                        override fun onFailure(
+                                            call: Call<UserRespon>,
+                                            t: Throwable
+                                        ) {
+                                            print(t.message)
+                                        }
 
-                                })
-                            }) {
-                                Icon(
-                                    Icons.Default.Delete,
-                                    contentDescription = null,
-                                    tint = Color.Red
-                                )
+                                    })
+                                }) {
+                                    Icon(
+                                        Icons.Default.Delete,
+                                        contentDescription = null,
+                                        tint = Color.Red
+                                    )
+                                }
                             }
                         }
                     }
                 }
-            }
 
+            }
         }
     }
 }

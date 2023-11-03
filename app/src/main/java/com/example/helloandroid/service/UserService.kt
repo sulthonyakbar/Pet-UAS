@@ -1,9 +1,14 @@
 package com.example.helloandroid.service
 
+import com.example.helloandroid.data.RegisterData
+import com.example.helloandroid.data.UpdateData
+import com.example.helloandroid.response.LoginRespon
 import com.example.helloandroid.response.UserRespon
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
+import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface UserService {
@@ -12,4 +17,7 @@ interface UserService {
 
     @DELETE("users/{id}")
     fun delete(@Path("id") id : Int) : Call<UserRespon>
+
+    @PUT("users/{id}")
+    fun save(@Path("id") id: String?, @Body body: UpdateData): Call<LoginRespon>
 }
