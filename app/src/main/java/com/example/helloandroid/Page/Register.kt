@@ -135,7 +135,8 @@ fun Register(navController: NavController, context: Context = LocalContext.curre
                 label = { Text(text = "Password") },
                 visualTransformation =
                 if (passwordVisibility) VisualTransformation.None
-                else PasswordVisualTransformation(),                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                else PasswordVisualTransformation(),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 38.dp),
@@ -205,7 +206,7 @@ fun Register(navController: NavController, context: Context = LocalContext.curre
 
             Row {
                 Text(text = "Already have an account ? ", color = Color.Gray)
-                ClickableText(text = AnnotatedString("Sign In"), onClick = {navController.navigate("greeting")})
+                ClickableText(text = AnnotatedString("Sign In"), onClick = {navController.navigate("login")})
             }
         }
     }

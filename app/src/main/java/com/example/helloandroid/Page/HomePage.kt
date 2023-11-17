@@ -106,7 +106,7 @@ fun HomePage(navController: NavController, context: Context = LocalContext.curre
                     Text(text = "Home Page", fontWeight = FontWeight.Bold, fontSize = 28.sp)
                     IconButton(modifier = Modifier.padding(start = 320.dp), onClick = {
                         preferencesManager.saveData("jwt", "")
-                        navController.navigate("greeting")
+                        navController.navigate("login")
                     }) {
                         Icon(
                             Icons.Default.ExitToApp,
