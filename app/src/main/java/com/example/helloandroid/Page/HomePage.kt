@@ -10,26 +10,37 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -48,7 +59,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomePage(navController: NavController, context: Context = LocalContext.current) {
+    val baseColor = Color(0xFF00676C)
     //var listUser: List<UserRespon> = remember
+    var search by remember { mutableStateOf(TextFieldValue("")) }
     val preferencesManager = remember { PreferencesManager(context = context) }
     val listUser = remember { mutableStateListOf<UserRespon>() }
     //var listUser: List<UserRespon> by remember { mutableStateOf(List<UserRespon>()) }
@@ -98,15 +111,30 @@ fun HomePage(navController: NavController, context: Context = LocalContext.curre
                         Icon(
                             Icons.Default.ExitToApp,
                             contentDescription = "Sign Out",
-                            tint = Color.Gray
+                            tint = Color.White
                         )
                     }
                 },
                 colors = TopAppBarDefaults.smallTopAppBarColors(
-                    containerColor = Color.White
+                    containerColor = baseColor,
+                    titleContentColor = Color.White,
+
                 ),
             )
-        }
+        },
+        bottomBar = {
+            BottomAppBar(
+                containerColor = Color.LightGray,
+                contentColor = Color.Black,
+            ) {
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    text = "Bottom App Navigation",
+                )
+            }
+        },
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -115,6 +143,29 @@ fun HomePage(navController: NavController, context: Context = LocalContext.curre
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+
+            OutlinedTextField(
+                value = search,
+                onValueChange = { newText ->
+                    search = newText
+                },
+                label = { Text(text = "Search") },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 6.dp),
+                trailingIcon = {
+                    IconButton(onClick = {
+                        // Handle the search action
+                    }) {
+                        Icon(
+                            Icons.Default.Search,
+                            contentDescription = "Search",
+                            tint = Color.Gray
+                        )
+                    }
+                }
+            )
+
             LazyColumn {
                 listUser.forEach { user ->
                     item {
@@ -125,11 +176,9 @@ fun HomePage(navController: NavController, context: Context = LocalContext.curre
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-
                             Text(text = user.username, fontSize = 18.sp)
 
                             Row(
-                                verticalAlignment = Alignment.CenterVertically
                             ) {
                                 IconButton(onClick = {
                                     navController.navigate("edituser/" + user.id + "/" + user.username + "/" + user.email)
@@ -157,7 +206,7 @@ fun HomePage(navController: NavController, context: Context = LocalContext.curre
                                             if (response.code() == 200) {
                                                 listUser.remove(user)
                                             } else if (response.code() == 400) {
-                                                print("error login")
+                                                print("error delete")
                                                 var toast = Toast.makeText(
                                                     context,
                                                     "Username atau password salah",

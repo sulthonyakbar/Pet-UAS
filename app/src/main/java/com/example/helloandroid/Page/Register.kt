@@ -176,7 +176,7 @@ fun Register(navController: NavController, context: Context = LocalContext.curre
                         if (response.code() == 200) {
                             navController.navigate("homepage")
                         } else if (response.code() == 400) {
-                            print("error login")
+                            print("error register")
                             var toast = Toast.makeText(
                                 context,
                                 "Username atau password salah",
