@@ -1,5 +1,5 @@
 # Pet
-Tugas Project UAS 
+Tugas Project UAS Pemrograman Mobile
 
 
 Sulthony Akbar Rizky Pambudi 1201210015
