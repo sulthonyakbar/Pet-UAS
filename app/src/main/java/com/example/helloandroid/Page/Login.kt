@@ -37,6 +37,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -75,7 +77,8 @@ fun Login(navController: NavController, context: Context = LocalContext.current)
     jwt = preferencesManager.getData("jwt")
     Scaffold (
         topBar = {
-            TopAppBar(title = { Text(text = "Sign In", fontWeight = FontWeight.Bold, fontSize = 28.sp) },
+            TopAppBar(title = { Text(text = "Sign In", fontWeight = FontWeight.Bold, fontSize = 24.sp,
+                fontFamily = FontFamily(Font(R.font.poppins_semibold))) },
                 colors = TopAppBarDefaults.smallTopAppBarColors(
                     containerColor = Color.White
                 ),
@@ -103,7 +106,7 @@ fun Login(navController: NavController, context: Context = LocalContext.current)
                 onValueChange = { newText ->
                     username = newText
                 },
-                label = { Text(text = "Username") },
+                label = { Text(text = "Username", fontFamily = FontFamily(Font(R.font.poppins_regular))) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 6.dp),
@@ -120,7 +123,7 @@ fun Login(navController: NavController, context: Context = LocalContext.current)
                 onValueChange = { newText ->
                     password = newText
                 },
-                label = { Text(text = "Password") },
+                label = { Text(text = "Password", fontFamily = FontFamily(Font(R.font.poppins_regular))) },
                 visualTransformation =
                 if (passwordVisibility) VisualTransformation.None
                 else PasswordVisualTransformation(),
@@ -181,13 +184,13 @@ fun Login(navController: NavController, context: Context = LocalContext.current)
                     containerColor = baseColor,
                     contentColor = Color.White),
             ) {
-                Text(text = "Sign In", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 16.sp )
+                Text(text = "Sign In", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 16.sp, fontFamily = FontFamily(Font(R.font.poppins_medium)) )
             }
 //            Text(text = jwt)
 
             Row {
-                Text(text = "Don't have an account ? ", color = Color.Gray)
-                ClickableText(text = AnnotatedString("Sign Up"),onClick = {navController.navigate("register")})
+                Text(text = "Don't have an account ? ", fontFamily = FontFamily(Font(R.font.poppins_regular)),color = Color.Gray)
+                ClickableText(text = AnnotatedString("Sign Up"), onClick = {navController.navigate("register")})
             }
         }
     }

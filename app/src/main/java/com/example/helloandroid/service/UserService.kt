@@ -1,6 +1,5 @@
 package com.example.helloandroid.service
 
-import com.example.helloandroid.data.RegisterData
 import com.example.helloandroid.data.UpdateData
 import com.example.helloandroid.response.LoginRespon
 import com.example.helloandroid.response.UserRespon

@@ -38,6 +38,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -46,7 +48,6 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.helloandroid.PreferencesManager
 import com.example.helloandroid.R
 import com.example.helloandroid.data.RegisterData
 import com.example.helloandroid.response.LoginRespon
@@ -70,7 +71,9 @@ fun Register(navController: NavController, context: Context = LocalContext.curre
     var passwordVisibility by remember { mutableStateOf(false) }
     Scaffold (
         topBar = {
-            TopAppBar(title = { Text(text = "Sign In", fontWeight = FontWeight.Bold, fontSize = 28.sp)},
+            TopAppBar(title = { Text(text = "Sign Up", fontWeight = FontWeight.Bold, fontSize = 24.sp, fontFamily = FontFamily(
+                Font(R.font.poppins_semibold)
+            ))},
                 colors = TopAppBarDefaults.smallTopAppBarColors(
                     containerColor = Color.White
                 ),
@@ -98,7 +101,7 @@ fun Register(navController: NavController, context: Context = LocalContext.curre
                 onValueChange = { newText ->
                     username = newText
                 },
-                label = { Text(text = "Username") },
+                label = { Text(text = "Username", fontFamily = FontFamily(Font(R.font.poppins_regular))) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 6.dp),
@@ -115,7 +118,7 @@ fun Register(navController: NavController, context: Context = LocalContext.curre
                 onValueChange = { newText ->
                     email = newText
                 },
-                label = { Text(text = "Email") },
+                label = { Text(text = "Email", fontFamily = FontFamily(Font(R.font.poppins_regular))) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 6.dp),
@@ -132,7 +135,7 @@ fun Register(navController: NavController, context: Context = LocalContext.curre
                 onValueChange = { newText ->
                     password = newText
                 },
-                label = { Text(text = "Password") },
+                label = { Text(text = "Password", fontFamily = FontFamily(Font(R.font.poppins_regular))) },
                 visualTransformation =
                 if (passwordVisibility) VisualTransformation.None
                 else PasswordVisualTransformation(),
@@ -200,12 +203,12 @@ fun Register(navController: NavController, context: Context = LocalContext.curre
                     containerColor = baseColor,
                     contentColor = Color.White),
             ) {
-                Text(text = "Sign Up", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 16.sp )
+                Text(text = "Sign Up", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 16.sp, fontFamily = FontFamily(Font(R.font.poppins_medium)) )
             }
 //            Text(text = jwt)
 
             Row {
-                Text(text = "Already have an account ? ", color = Color.Gray)
+                Text(text = "Already have an account ? ", fontFamily = FontFamily(Font(R.font.poppins_regular)), color = Color.Gray)
                 ClickableText(text = AnnotatedString("Sign In"), onClick = {navController.navigate("login")})
             }
         }

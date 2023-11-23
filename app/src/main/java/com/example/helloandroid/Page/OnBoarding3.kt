@@ -20,6 +20,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -41,8 +43,9 @@ fun OnBoarding3(navController: NavController) {
     ) {
         Text(
             text = "Welcome",
+            fontFamily = FontFamily(Font(R.font.poppins_semibold)),
             fontWeight = FontWeight.Bold,
-            fontSize = 42.sp,
+            fontSize = 40.sp,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(bottom = 36.dp)
         )
@@ -50,8 +53,9 @@ fun OnBoarding3(navController: NavController) {
         Text(
             text = "Temukan Tempat Terindah \n" +
                     "Untuk Hewan Anda",
+            fontFamily = FontFamily(Font(R.font.poppins_semibold)),
             fontWeight = FontWeight.Bold,
-            fontSize = 20.sp,
+            fontSize = 18.sp,
             textAlign = TextAlign.Center,
         )
 

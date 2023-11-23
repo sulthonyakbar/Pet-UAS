@@ -5,7 +5,20 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -62,5 +75,40 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+@Composable
+fun BottomNavigation() {
+    NavigationBar {
+        val bottomNavigation = listOf(
+            BottomNavItem(
+                label = "Home",
+                icon = Icons.Default.Home
+            ),
+            BottomNavItem(
+                label = "Pesanan",
+                icon = Icons.Default.ShoppingCart
+            ),
+            BottomNavItem(
+                label = "Chat",
+                icon = Icons.Default.Email
+            ),
+            BottomNavItem(
+                label = "Profile",
+                icon = Icons.Default.AccountCircle
+            )
+        )
+        bottomNavigation.map {
+            NavigationBarItem(
+                selected = it.label == bottomNavigation[0].label,
+                onClick = { /*TODO*/ },
+                icon = { Icon(imageVector = it.icon, contentDescription = it.label) },
+                label = {Text(text = it.label)}
+            )
+        }
+    }
+}
+data class BottomNavItem(val label: String, val icon: ImageVector)
+
+
+
 
 
