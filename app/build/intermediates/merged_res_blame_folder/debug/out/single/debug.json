@@ -1,0 +1,222 @@
+[
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_hidden.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\hidden.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_semibolditalic.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_semibolditalic.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_thin.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_thin.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_ob2.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\ob2.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_regular.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_regular.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_cr2.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\cr2.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_register.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\register.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_penitipan.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\penitipan.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_ob3.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\ob3.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_artikel2.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\artikel2.png"
+    },
+    {
+        "merged": "com.example.helloandroid.app-merged_res-52:/drawable_chat1.png.flat",
+        "source": "com.example.helloandroid.app-main-54:/drawable/chat1.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-xxxhdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_italic.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_italic.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_artikel.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\artikel.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_thinitalic.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_thinitalic.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_view.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\view.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_bold.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_bold.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_cr1.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\cr1.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_extralightitalic.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_extralightitalic.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-hdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_artikel1.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\artikel1.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-mdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_light.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_light.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_extrabolditalic.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_extrabolditalic.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_ob1.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\ob1.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_semibold.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_semibold.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_lightitalic.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_lightitalic.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_konsul.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\konsul.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_extrabold.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_extrabold.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-xxhdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_medium.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_medium.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_extralight.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_extralight.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_bolditalic.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_bolditalic.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_blackitalic.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_blackitalic.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_cr3.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\cr3.png"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_mediumitalic.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_mediumitalic.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\font_poppins_black.ttf.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\font\\poppins_black.ttf"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\mipmap-xhdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-merged_res-52:\\drawable_my_image.png.flat",
+        "source": "C:\\Users\\ASUS\\.gradle\\daemon\\8.0\\com.example.helloandroid.app-main-54:\\drawable\\my_image.png"
+    }
+]
