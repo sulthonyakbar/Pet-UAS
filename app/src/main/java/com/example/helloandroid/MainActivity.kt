@@ -20,7 +20,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.helloandroid.Page.Artikel
+import com.example.helloandroid.Page.Artikel.Artikel
+import com.example.helloandroid.Page.Artikel.DetailArtikel
+import com.example.helloandroid.Page.Artikel.Konsultasi
 import com.example.helloandroid.Page.EditUser
 import com.example.helloandroid.Page.HomePage
 import com.example.helloandroid.Page.Login
@@ -67,6 +69,12 @@ class MainActivity : ComponentActivity() {
                 }
                 composable(route = "artikel") {
                     Artikel(navController)
+                }
+                composable(route = "detailartikel") {
+                    DetailArtikel(navController)
+                }
+                composable(route = "konsultasi") {
+                    Konsultasi(navController)
                 }
                 composable(
                     route = "edituser/{userid}/{username}/{email}",

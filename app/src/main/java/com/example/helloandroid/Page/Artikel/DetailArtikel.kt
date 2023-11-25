@@ -1,4 +1,4 @@
-package com.example.helloandroid.Page
+package com.example.helloandroid.Page.Artikel
 
 import android.content.Context
 import android.widget.Toast
@@ -61,13 +61,13 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.security.AllPermission
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Artikel(navController: NavController) {
+fun DetailArtikel(navController: NavController) {
     val baseColor = Color(0xFF00676C)
     val artikel1 = painterResource(id = R.drawable.artikel1)
-    val artikel2 = painterResource(id = R.drawable.artikel2)
 
     var search by remember { mutableStateOf(TextFieldValue("")) }
 
@@ -78,14 +78,16 @@ fun Artikel(navController: NavController) {
                     Row (
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        IconButton(onClick = { navController.navigate("homepage") }) {
+                        IconButton(onClick = { navController.navigate("artikel") }) {
                             Icon(
                                 Icons.Default.ArrowBack,
                                 contentDescription = null,
                                 tint = Color.White
                             )
                         }
-                        Text(text = "Artikel", fontWeight = FontWeight.Bold, fontSize = 24.sp)
+                        Text(text = "Detail Artikel", fontWeight = FontWeight.Bold, fontSize = 24.sp,
+                            fontFamily = FontFamily(Font(R.font.poppins_semibold))
+                        )
                     }
                 },
                 colors = TopAppBarDefaults.smallTopAppBarColors(
@@ -103,86 +105,24 @@ fun Artikel(navController: NavController) {
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+                Text(text = "Fakta - fakta tentang bulu kucing, No.3 Paling Mengerikan",
+                fontFamily = FontFamily(Font(R.font.poppins_semibold)), fontSize = 16.sp,
+                    modifier = Modifier.padding(bottom = 12.dp))
 
-            OutlinedTextField(
-                value = search,
-                onValueChange = { newText ->
-                    search = newText
-                },
-                label = {
-                    Text(
-                        text = "Search",
-                        fontFamily = FontFamily(Font(R.font.poppins_regular))
-                    )
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 6.dp),
-                trailingIcon = {
-                    IconButton(onClick = {
-                        // Handle the search action
-                    }) {
-                        Icon(
-                            Icons.Default.Search,
-                            contentDescription = "Search",
-                            tint = baseColor
-                        )
-                    }
-                },
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    focusedBorderColor = baseColor,
-                    unfocusedBorderColor = Color.Gray,
-                    cursorColor = baseColor
-                )
-            )
-
-            Row (
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
-            ){
                 Box{
                     Image(
                         painter = artikel1,
                         contentDescription = null,
                         alignment = Alignment.Center,
                         modifier = Modifier
-                            .height(100.dp)
-                            .width(100.dp)
-                            .padding(end = 12.dp)
-                            .clickable { navController.navigate("artikel") }
+                            .height(200.dp)
+                            .width(400.dp)
                     )
                 }
-                Text(text = "Fakta - fakta tentang bulu kucing, No.3 Paling mengerikan",
-                    fontFamily = FontFamily(Font(R.font.poppins_medium)))
-            }
 
-            Divider(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(1.dp)
-                    .background(Color.Gray)
-            )
-
-            Row (
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
-            ){
-                Box{
-                    Image(
-                        painter = artikel2,
-                        contentDescription = null,
-                        alignment = Alignment.Center,
-                        modifier = Modifier
-                            .height(100.dp)
-                            .width(100.dp)
-                            .padding(end = 12.dp)
-                            .clickable { navController.navigate("artikel") }
-                    )
-                }
-                Text(text = "Ini tanda kucingmu sedang bahagia, cek kucingmu sekarang",
-                    fontFamily = FontFamily(Font(R.font.poppins_medium)))
-            }
-
+                Text(text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    fontFamily = FontFamily(Font(R.font.poppins_medium)),
+                    modifier = Modifier.padding(top = 12.dp))
         }
     }
 }
